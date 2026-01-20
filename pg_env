@@ -1,0 +1,9 @@
+
+export PGHOST="pgdatabase01.postgres.database.azure.com"
+export PGUSER="paavo"
+export PGPORT=5432
+export PGDATABASE="postgres"
+export PGPASSWORD="Keffeli06"
+
+echo "PG env set for this session!"
+
