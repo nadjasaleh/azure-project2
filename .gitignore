@@ -1,8 +1,7 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
-databases-flask/src/data/database.ini
-src/data/database.ini
-data/database.ini
+azure-project2/sql/database.ini
+sql/database.ini
 database.ini
 databases-flask/src/data/start.sql
 src/data/start.sql
