@@ -3,10 +3,10 @@
 ## Project Plan (3 Days)
 
 ### Day 1 – Foundation & Connectivity
-1. Create Azure Resource Group, PostgreSQL database, Storage Account, Key Vault, and Virtual Machine  
-2. Design database tables: `time_entries` and `consultant_balance`  
-3. Create Flask API skeleton with a health endpoint  
-4. Initialize GitHub repository and project structure  
+1. Create Azure Resource Group, PostgreSQL database, Storage Account, Key Vault, and Virtual Machine  (Paavo)
+2. Design database tables: `time_entries` and `consultant_balance`  (Olle)
+3. Create Flask API skeleton with a health endpoint  (Majd)
+4. Initialize GitHub repository and project structure  (Nadja)
 5. Verify connectivity: Postman → API → PostgreSQL  
 
 ---
