@@ -1,6 +1,4 @@
-# azure-project2
-
-## Project Plan (3 Days)
+# Project Plan Azure
 
 ### TUESDAY – Foundation & Connectivity
 1. Create Azure Resource Group, PostgreSQL database, Storage Account, Key Vault, and Virtual Machine  (Paavo)
