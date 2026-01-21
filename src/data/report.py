@@ -51,7 +51,5 @@ def report():
         if con is not None:
             con.close()
 
-
-if 
 report()
 
