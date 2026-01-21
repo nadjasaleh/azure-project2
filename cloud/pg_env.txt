@@ -1,0 +1,14 @@
+export PGHOST="pgdatabase01.postgres.database.azure.com"
+export PGUSER="paavo"
+export PGPORT=5432
+export PGDATABASE="postgres"
+
+if [ -z "${PGPASSWORD:-}" ]; then
+       read -r -s -p "Enter password for $PGHOST: " PGPASSWORD
+       echo
+       export PGPASSWORD
+fi
+
+echo "PG env set for this session!"
+
+

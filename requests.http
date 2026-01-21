@@ -1,0 +1,10 @@
+curl http://52.236.58.24:5000/
+###
+curl -X GET http://52.236.58.24:5000/show_shifts
+###
+curl -X POST http://52.236.58.24:5000/new_shift -H "Content-Type: application/json" -d '{"start_time": "2024-06-01T09:00:00", "end_time": "2024-06-01T17:00:00", "lunch_break": true, "consultant_id": 3, "customer_id": 3}'
+###
+curl http://52.236.58.24:5000/report
+
+###
+curl http://52.158.35.233:5000/
