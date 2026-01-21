@@ -1,0 +1,11 @@
+[postgresql]
+host=
+database=
+port=
+user=
+password=
+
+
+[azure]
+connect_str=
+container_name=
