@@ -1,9 +1,0 @@
-[project]
-name = "azure-project2"
-version = "0.1.0"
-requires-python = ">=3.12"
-dependencies = [
-    "pi>=0.1.2",
-    "pip>=25.3",
-    "psycopg2-binary>=2.9.11",
-]
