@@ -84,33 +84,15 @@ def print_database(con: psycopg2.extensions.connection):
         for row in cur.fetchall():
             print(row)
 
-    print("\n--- SHIFTS (joined view) ---")
-    with con.cursor() as cur:
-        cur.execute("""
-            SELECT s.id,
-                   s.start_time,
-                   s.end_time,
-                   s.lunch_break,
-                   c.name AS consultant,
-                   cu.name AS customer
-            FROM shift s
-            JOIN consultant c ON c.id = s.consultant_id
-            JOIN customer cu ON cu.id = s.customer_id
-            ORDER BY s.id;
-        """)
-        for row in cur.fetchall():
-            print(row[0],row[1],row[2],'(',row[2]-row[1],')',row[3],row[4],row[5])
-
 def main():
     con = None
     try:
         con = psycopg2.connect(**config())
         if con:
             clean_database(con)
-            populate_consultant(con, 20) 
-            populate_customer(con, 5)
-            populate_shift(con, 40)
-            print_database(con)
+            populate_consultant(con, 100) 
+            populate_customer(con, 20)
+            populate_shift(con, 1000)
     except (Exception, psycopg2.DatabaseError) as error:
         print(f"Error: {error}")
     finally:
