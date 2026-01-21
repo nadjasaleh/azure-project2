@@ -50,9 +50,45 @@ az network public-ip show \
     --query "ipAddress" \
     --output tsv
 ```
-
+### Retrieve all public ip's
+```bash
+az network public-ip list --query "[].ipAddress" --output tsv
+```
 
 Use these commands to verify the existence and details of the resources before proceeding with the setup steps.
+
+### Check firewall rules for PG server
+```bash
+az postgres flexible-server firewall-rule list \
+    --resource-group <resource-group-name> \
+    --server-name <server-name> \
+    --output table
+```
+
+### Check network rules for SA
+```bash
+az storage account network-rule list \
+    --resource-group <resource-group-name> \
+    --account-name <storage-account-name> \
+    --output table
+```
+
+### Check NSG rules for VM
+```bash
+az vm show \
+    --resource-group <resource-group-name> \
+    --name <vm-name> \
+    --query "networkProfile.networkInterfaces[0].id" \
+    --output tsv
+```
+
+based on NSG name
+```bash
+az network nsg rule list \
+    --resource-group <resource-group-name> \
+    --nsg-name <nsg-name> \
+    --output table
+```
 
 ---
 
@@ -134,6 +170,16 @@ AAD is a cloud-based identity and access management service. It is used to manag
        --location northeurope \
        --public-access 0.0.0.0
    ```
+
+   **(optional)**
+   ```bash
+   az postgres flexible-server firewall-rule create \
+        --resource-group <resource-group-name> \
+        --name <server-name> \
+        --rule-name AllowIP1 \
+        --start-ip-address 203.0.113.1 \
+        --end-ip-address 203.0.113.1
+    ```
 
 3. Note the connection string:
    ```bash
