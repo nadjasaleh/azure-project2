@@ -11,6 +11,9 @@ start.sql
 *$py.class
 # C extensions
 *.so
+pg_env/
+pyproject.toml
+uv.lock
 # Distribution / packaging
 .Python
 build/

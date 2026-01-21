@@ -1,5 +1,6 @@
 from flask import Flask, request
 from query_services import *
+from report import report
 
 app = Flask(__name__)
 
@@ -30,11 +31,19 @@ def add_new_shifts():
         return {"success": "Shift added"}
     except:
         return {"error": "error in adding shift"}
-
+           
+@app.route("/report", methods=["GET"])
+def trigger_report():
+    try:
+        report() 
+        return {"success": "Report generated and uploaded to Azure Blob Storage"}
+    except Exception as e:
+        return {"error": str(e)}
 
 
 # http://127.0.0.1:5000/show_shifts
 # http://127.0.0.1:5000/new_shift
+# http://127.0.0.1:5000/report
 
 
 if __name__ == "__main__":
