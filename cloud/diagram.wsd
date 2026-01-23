@@ -1,0 +1,41 @@
+@startuml
+
+title Azure Cloud Setup for g2p2 Project
+
+!define AzureColor #ADD8E6
+skinparam backgroundColor AzureColor
+skinparam shadowing false
+
+package "Azure Resource Group: g2p2-rg" {
+
+  package "Virtual Network: g2p2-vnet" {
+    [Subnet: g2p2-subnet]
+    [Subnet: g2p2-app-gateway-subnet]
+  }
+
+  package "PostgreSQL Flexible Server" {
+    [g2p2-postgres-db]
+  }
+
+  package "Azure Blob Storage" {
+    [Storage Account: g2p2sa]
+    [Container: data]
+  }
+
+  package "Virtual Machines" {
+    [VM: g2p2-app1-vm]
+    [VM: g2p2-app2-vm]
+  }
+
+  package "Application Gateway" {
+    [g2p2-app-gateway]
+    [Public IP: 20.123.34.18]
+  }
+}
+
+[g2p2-app1-vm] --> [g2p2-postgres-db] : Connects to
+[g2p2-app2-vm] --> [Storage Account: g2p2sa] : Connects to
+[g2p2-app1-vm] --> [g2p2-app-gateway] : Routed through
+[g2p2-app2-vm] --> [g2p2-app-gateway] : Routed through
+
+@enduml
